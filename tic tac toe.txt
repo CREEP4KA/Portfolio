@@ -1,0 +1,24 @@
+Xaxis=["1","2","3"]
+Yaxis=["1","2","3"]
+cooO=["11"]
+cooX=[]
+coo2=0
+x=0
+y=0
+def grid(Yaxis,Xaxis,cooO,cooX,coo2,x,y):
+    for loop in range(3):
+        for loop in range(3):
+            coo2=Xaxis[x]+Yaxis[y]
+            if coo2 not in cooX:
+                print("□ ",end="")
+            elif coo2 not in cooO:
+                print("□ ",end="")
+            elif coo2 in cooX:
+                print("X ",end="")
+            elif coo2 in cooO:
+                print("O ",end="")
+            x=x+1
+        print("")
+        x=0
+        y=y+1
+grid(Yaxis,Xaxis,cooO,cooX,coo2,x,y)

@@ -1,0 +1,81 @@
+move=["ROCK","ROCK","ROCK","ROCK","ROCK","SCISSORS","SCISSORS","SCISSORS","PAPER","PAPER"]
+ansr=0
+playerans=0
+botans=0
+
+
+
+import time
+import random
+
+
+
+print("When the game starts, type 1 2 or 3 to choose your move.")
+time.sleep(2)
+print("1 is for ROCK")
+time.sleep(1)
+print("2 is for PAPER")
+time.sleep(1)
+print("3 is for SCISSORS")
+time.sleep(1.5)
+print("Each turn is espaced by three special lines.")
+
+def cooldown(playerans):
+    for loop in range(3):
+        time.sleep(1)
+        print("...")
+    print("Your move ?")
+    playerans=int(input(""))
+    if playerans>3:
+        print("ERROR")
+        cooldown(playerans)
+    else:
+        botmove(cooldown,move,playerans)
+
+
+
+def ready(ansr,cooldown,):
+    ansr=input("Are you ready ? (y/n)")
+    if ansr=="y":
+        print("The game will now start...")
+        cooldown(playerans)
+    else:
+        time.sleep(10)
+        ready(ansr,cooldown)
+
+
+def botmove(cooldown,move,playerans):
+    botans=random.choice(move)
+    print("BOT: ",botans)
+    if playerans==1:
+        print("PLAYER: ROCK")
+        playerans="ROCK"
+    elif playerans==2:
+        print("PLAYER: PAPER")
+        playerans="PAPER"
+    elif playerans==3:
+        print("PLAYER: SCISSORS")
+        playerans="SCISSORS"
+
+
+    if botans==playerans:
+        print("----------DRAW----------")
+    elif botans=="ROCK":
+        if playerans=="PAPER":
+            print("-----PLAYER WINS-----")
+        else:
+            print("-----PLAYER LOSES-----")
+    elif botans=="PAPER":
+        if playerans=="SCISSORS":
+            print("-----PLAYER WINS-----")
+        else:
+            print("-----PLAYER LOSES-----")
+    elif botans=="SCISSORS":
+        if playerans=="ROCK":
+            print("-----PLAYER WINS-----")
+        else:
+            print("-----PLAYER LOSES-----")
+
+ready(ansr,cooldown)
+while True:
+    cooldown(playerans)
