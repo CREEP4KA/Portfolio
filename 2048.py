@@ -201,7 +201,7 @@ def win(winner:bool)->bool:
                 break
 
     return winner
-        """
+    """
     la fonction vérifie si le joueur a atteint la valeur 2048
     et renvoie True si le jeu est fini
     """
